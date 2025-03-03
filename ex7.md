@@ -1,2 +1,2 @@
-1.  
-2.  
+1.  The implementation of reverse() has a time complexity of O(n) for the for loop, which starts from the end and runs n times, and O(n) for each time it uses the get_element_at_pos() since for linked lists, the function must traverse through the whole list to find the element. Altogether, it results in a complexity of O(n^2).
+2.  The new_reverse() function has a time complexity of O(n). It improves on the original reverse() function by removing the need to traverse through the whole array for get_element_at_pos(), which contributed a complexity of O(n) every time. In the new_reverse(), the direction of the next pointer for each node is being flipped, starting with the head now pointing to None. This step is constant O(1) no matter the node, so the only complexity contributing to the total time complexity is the O(n) for traversing through the list.
