@@ -20,3 +20,18 @@ Finally, to compute the size of memory allocated, you would compute:
 newsize + newsize/2^3 +6 = size of allocation. If this value is not a multiple of 4, it will
 round down to the nearest multipe of 3 due to the &~3 operation.
 """
+
+import sys
+
+memory_test = []
+
+previous_capacity = sys.getsizeof(memory_test)
+
+print(f"The initial size of the list that is empty is {memory_test} bytes")
+
+for i in range(64):
+    memory_test.append(i)
+    new_capacity = sys.getsizeof(memory_test)
+    if(new_capacity != previous_capacity):
+        print(f"Memory has changed at {i+1} elements and has a capacity of {new_capacity} bytes")
+        previous_capacity = new_capacity
