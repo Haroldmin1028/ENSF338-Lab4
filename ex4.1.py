@@ -1,4 +1,11 @@
-""" 4/2: 1) The worst case time complexity would be O(n^2). Worst case scenario occurs 
+""" 
+1. State and justify what is the best, worst and average case
+complexity for the code in the previous slide [0.1 pts]
+2. Are average, best, and worst case complexity the same? If not,
+produce a modified version of the code above for which average,
+best, and worst case complexity are equivalent. [0.1 pts]
+
+4/2: 1) The worst case time complexity would be O(n^2). Worst case scenario occurs 
 when every element in "li" is greater than 5 which would mean that the inner loop always runs
 and the multiplication within the inner loop will also always occur. both "for loops" have a O(n) time complexity
 while the if statement and the multiplication within the inner loop have an 0(1) time complexity. We can see that O(n) * O(n) = 0(n^2)
@@ -13,7 +20,6 @@ an O(n) time complexity. The only cost of time complexity occurs with the for lo
 O(1) as it checks the condition, which by the way will never meet requirments to run the inner loop for best case scenario.
 
 2) No, the average, best, and worst case complexity are not the same. Average and worst case are the same, but not best.
-
 """
 
 # original version of the code

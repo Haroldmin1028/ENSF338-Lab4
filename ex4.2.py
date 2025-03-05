@@ -1,4 +1,15 @@
 """
+• Now, consider the tasks of searching in a sorted array
+3. Provide the code for an inefficient implementation and an efficient
+implementation. [0.1 pts]
+4. State the worst-case complexity of each. [0.1 pts]
+5. Provide the code for an experiment that demonstrates the
+difference. [0.1 pts] The experiment should:
+1. Time the execution of both implementations on realistic, large inputs (1000
+elements or above)
+2. Plot the distribution of measured values across multiple measurements (>=
+100 measurements per task)
+
 4/3: 3. Considering searching in a sorted array, efficient method would be binary search and an inefficient method would be linear search.
      4. The worst case complexity for binary search (efficient method) is O(log n) and the worst case method for linear search (inefficient method) is O(n)
      The linear search is inefficient as it will check each and every element and compare it to the target value (until it is reached), regardless if it is sorted or not. Binary search works well
