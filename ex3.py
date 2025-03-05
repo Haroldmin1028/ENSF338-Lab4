@@ -1,11 +1,11 @@
 """
-Identify and explain the strategy used to grow arrays when full, with
-references to specific lines of code in the file above. What is the
-growth factor? [0.1 pts
+1.  Identify and explain the strategy used to grow arrays when full, with
+    references to specific lines of code in the file above. What is the
+    growth factor? 
 
-When a dynamic array is full in python, to grow the array, it used a strategic over-allocation method as shown in line 70
-of the 'list.c' file. Doing so, the capacity gets increased to avoid frequent memory allocations.
-By looking at that line of code, we are able to notice that:
+    When a dynamic array is full in python, to grow the array, it used a strategic over-allocation method as shown in line 70
+    of the 'list.c' file. Doing so, the capacity gets increased to avoid frequent memory allocations.
+    By looking at that line of code, we are able to notice that:
 
 newsize: the required size of the list
 
@@ -19,6 +19,12 @@ Finally, to compute the size of memory allocated, you would compute:
 
 newsize + newsize/2^3 +6 = size of allocation. If this value is not a multiple of 4, it will
 round down to the nearest multipe of 3 due to the &~3 operation.
+
+5.  Plot the distribution of both measurements (you can use hist or similar). Do you see any difference? Why?
+
+    Yes, there is a difference. We see a difference because resizing arrays (S -> S+1) requires memory allocation 
+    and copying which uses up more space and lengthens the amount of time required to complete the task. (S-1 -> S) 
+    on the other hand has the capacity to lengthen the array so it's a lot more efficient 
 """
 
 import sys
