@@ -22,6 +22,9 @@ round down to the nearest multipe of 3 due to the &~3 operation.
 """
 
 import sys
+import time
+import numpy as np
+import matplotlib.pyplot as plt
 
 memory_test = []
 
@@ -35,3 +38,38 @@ for i in range(64):
     if(new_capacity != previous_capacity):
         print(f"Memory has changed at {i+1} elements and has a capacity of {new_capacity} bytes")
         previous_capacity = new_capacity
+
+
+S = 53  
+
+times_S_to_S1 = []
+for _ in range(1000):
+    lst = list(range(S))  
+    start = time.perf_counter()
+    lst.append(S)  
+    end = time.perf_counter()
+    times_S_to_S1.append(end - start)
+
+times_S1_to_S = []
+for _ in range(1000):
+    lst = list(range(S-1))  
+    start = time.perf_counter()
+    lst.append(S-1)  
+    end = time.perf_counter()
+    times_S1_to_S.append(end - start)
+
+
+mean_S_to_S1 = np.mean(times_S_to_S1)
+mean_S1_to_S = np.mean(times_S1_to_S)
+
+print(f"Average time for S → S+1: {mean_S_to_S1:.10f} seconds")
+print(f"Average time for S-1 → S: {mean_S1_to_S:.10f} seconds")
+
+plt.figure(figsize=(10, 5))
+plt.hist(times_S_to_S1, bins=30, alpha=0.7, label="S → S+1 (resize needed)")
+plt.hist(times_S1_to_S, bins=30, alpha=0.7, label="S-1 → S (no resize)")
+plt.xlabel("Time (seconds)")
+plt.ylabel("Frequency")
+plt.title("Distribution of List Growth Times")
+plt.legend()
+plt.show()
